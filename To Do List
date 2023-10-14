@@ -1,25 +1,25 @@
 def main_menu():
-    print("\n--- TO-DO LIST ---")
-    print("1. View Tasks")
-    print("2. Add Task")
-    print("3. Mark Task as Complete")
-    print("4. Delete Task")
-    print("5. Exit")
+    print("\n TO-DO LIST ")
+    print("1.View Tasks")
+    print("2.Add Task")
+    print("3.Mark Task as Complete")
+    print("4.Delete Task")
+    print("5.Exit")
 def view_tasks(tasks):
-    print("\n--- YOUR TASKS ---")
+    print("\n Tasks ")
     for index, task in enumerate(tasks):
-        print(f"{index}. {task}")
+        print(f"{index+1}. {task}")
 def add_task(tasks):
-    task = input("Enter new task: ")
+    task = input("Add new task: ")
     tasks.append(task)
     print("Task added successfully!")
 def complete_task(tasks):
-    index = int(input("Enter the index of the task to mark as complete: "))
-    tasks[index] += " (Complete)"
+    index = int(input("Enter the serial no. of the task to mark as complete: "))
+    tasks[index-1] += " (Complete)"
     print("Task marked as complete!")
 def delete_task(tasks):
-    index = int(input("Enter the index of the task to delete: "))
-    del tasks[index]
+    index = int(input("Enter the serial no. of the task to delete: "))
+    del tasks[index-1]
     print("Task deleted successfully!")
 def main():
     tasks = []
@@ -36,7 +36,7 @@ def main():
         elif choice == '4':
             delete_task(tasks)
         elif choice == '5':
-            print("Exiting the application...")
+            print("Exiting the list...")
             break
         else:
             print("Invalid choice. Please try again!")
